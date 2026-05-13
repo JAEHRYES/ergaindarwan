@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-name"><a href="index.html">Erga Indarwan</a></div>
+    <nav class="header-nav">
+      <a href="interests.html">Interests</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="photography.html">Photography</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-role">Coder &amp; Engineer</div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag reveal">Projects</div>
+      <h1 class="page-hero-title reveal">Things I've<br /><em>Actually Built.</em></h1>
+      <p class="page-hero-sub reveal" data-delay="100">A selection of personal, academic, and professional work.</p>
+    </div>
+    <div class="page-hero-bg-text" aria-hidden="true">PROJECTS</div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="filter-section">
+    <div class="section-inner">
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="systems">Systems</button>
+        <button class="filter-btn" data-filter="ml">ML / Data</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="section projects-page-section">
+    <div class="section-inner">
+      <div class="projects-grid">
+
+        <div class="project-card reveal" data-delay="0" data-category="web">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/3a3a38/c8b89a?text=Project+01" alt="Project 1" />
+            <div class="project-overlay">
+              <a href="SmartHouse.html" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">Web App</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">Portfolio Dashboard</h3>
+          <p class="project-desc">A personal finance dashboard that aggregates data from multiple sources and visualises spending trends with interactive charts.</p>
+          <div class="project-stack">
+            <span>React</span><span>Node.js</span><span>Chart.js</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-delay="100" data-category="systems">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/2d2d2b/a8b89a?text=Project+02" alt="Project 2" />
+            <div class="project-overlay">
+              <a href="#" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">Embedded Systems</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">Smart Environment Monitor</h3>
+          <p class="project-desc">An IoT device built on Raspberry Pi that monitors temperature, humidity, and air quality, streaming data to a web dashboard in real-time.</p>
+          <div class="project-stack">
+            <span>Python</span><span>MQTT</span><span>Raspberry Pi</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-delay="0" data-category="ml">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/4a4438/c8b89a?text=Project+03" alt="Project 3" />
+            <div class="project-overlay">
+              <a href="#" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">ML / Data</span>
+            <span class="project-year">2023</span>
+          </div>
+          <h3 class="project-title">Text Classifier API</h3>
+          <p class="project-desc">A REST API wrapping a fine-tuned sentiment analysis model, deployed with FastAPI and Docker. Processes thousands of requests per minute.</p>
+          <div class="project-stack">
+            <span>Python</span><span>FastAPI</span><span>PyTorch</span><span>Docker</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-delay="100" data-category="tools">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/3a3835/b8c8a8?text=Project+04" alt="Project 4" />
+            <div class="project-overlay">
+              <a href="#" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">Developer Tool</span>
+            <span class="project-year">2023</span>
+          </div>
+          <h3 class="project-title">CLI Task Manager</h3>
+          <p class="project-desc">A terminal-based task management tool written in Go. Supports tagging, priorities, and markdown export. Used daily in my workflow.</p>
+          <div class="project-stack">
+            <span>Go</span><span>Cobra CLI</span><span>SQLite</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-delay="0" data-category="web">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/2d3530/c8b89a?text=Project+05" alt="Project 5" />
+            <div class="project-overlay">
+              <a href="#" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">Web App</span>
+            <span class="project-year">2022</span>
+          </div>
+          <h3 class="project-title">Recipe Sharing Platform</h3>
+          <p class="project-desc">A community platform where users share and discover recipes. Features authentication, image uploads, ratings, and a full-text search engine.</p>
+          <div class="project-stack">
+            <span>Next.js</span><span>Supabase</span><span>Cloudinary</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-delay="100" data-category="systems">
+          <div class="project-img">
+            <img src="https://placehold.co/600x380/3a3530/a8b8a8?text=Project+06" alt="Project 6" />
+            <div class="project-overlay">
+              <a href="#" class="project-overlay-link">View Project →</a>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="project-cat">Systems</span>
+            <span class="project-year">2022</span>
+          </div>
+          <h3 class="project-title">Custom RTOS Scheduler</h3>
+          <p class="project-desc">Implemented a basic real-time operating system scheduler in C for a microcontroller as part of a university research project. Documented and open-sourced.</p>
+          <div class="project-stack">
+            <span>C</span><span>ARM Cortex-M</span><span>RTOS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>© 2025 Erga Indarwan</span>
+    <span class="footer-sep">·</span>
+    <span>Built with care &amp; caffeine</span>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="scrollToTop()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interests — Erga Indarwan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── INTERESTS BUBBLE LAYOUT ──────────────────────────────── */
+    .interests-page-section { background: var(--bg); }
+
+    /* Orbit cluster area */
+    .interests-universe {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+      padding: 2rem 0 4rem;
+    }
+
+    /* Each interest = a "cluster" */
+    .interest-cluster {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .interest-cluster:nth-child(even) {
+      grid-template-columns: 1fr 280px;
+    }
+    .interest-cluster:nth-child(even) .cluster-bubble-area {
+      order: 2;
+    }
+    .interest-cluster:nth-child(even) .cluster-text {
+      order: 1;
+    }
+
+    /* Central big bubble */
+    .cluster-bubble-area {
+      position: relative;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cluster-main-bubble {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      color: #f4f1eb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 12px 40px rgba(30,30,28,0.18);
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+      cursor: default;
+    }
+    .cluster-main-bubble:hover {
+      transform: scale(1.06);
+      box-shadow: 0 20px 60px rgba(30,30,28,0.24);
+    }
+    .cluster-main-bubble .bubble-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .cluster-main-bubble .bubble-label {
+      font-family: var(--ff-serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Orbiting mini-bubbles */
+    .orbit-bubble {
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+      text-align: center;
+      padding: 0.3rem 0.5rem;
+      cursor: default;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+      border: 1px solid var(--border-md);
+      background: var(--bg-card);
+      color: var(--ink-2);
+      animation: floatBubble var(--float-dur, 4s) ease-in-out infinite;
+      animation-delay: var(--float-delay, 0s);
+    }
+    .orbit-bubble:hover {
+      transform: scale(1.12) !important;
+      box-shadow: 0 8px 24px rgba(30,30,28,0.12);
+      z-index: 10;
+    }
+    /* Accent variant */
+    .orbit-bubble.accent {
+      background: rgba(92,107,80,0.12);
+      border-color: rgba(92,107,80,0.3);
+      color: var(--accent);
+    }
+    /* Sand variant */
+    .orbit-bubble.sand {
+      background: rgba(200,184,154,0.18);
+      border-color: rgba(200,184,154,0.45);
+      color: var(--ink-2);
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    /* Positioning helpers — each cluster positions its own orbits */
+    /* Cluster 1: Arduino & Hardware */
+    .c1 .ob1  { width:70px; height:70px; top:10px;  left:20px;  --float-dur:3.8s; --float-delay:0s; }
+    .c1 .ob2  { width:80px; height:80px; top:0px;   right:30px; --float-dur:4.5s; --float-delay:.4s; }
+    .c1 .ob3  { width:65px; height:65px; bottom:20px; left:10px; --float-dur:3.5s; --float-delay:.8s; }
+    .c1 .ob4  { width:75px; height:75px; bottom:10px; right:15px; --float-dur:5s;  --float-delay:.2s; }
+    .c1 .ob5  { width:60px; height:60px; top:40%; left:-5px; --float-dur:4s; --float-delay:1s; }
+
+    /* Cluster 2: Python */
+    .c2 .ob1  { width:72px; height:72px; top:5px;   left:30px;  --float-dur:4.2s; --float-delay:.1s; }
+    .c2 .ob2  { width:82px; height:82px; top:5px;   right:20px; --float-dur:3.9s; --float-delay:.5s; }
+    .c2 .ob3  { width:68px; height:68px; bottom:15px; left:20px; --float-dur:4.6s; --float-delay:.9s; }
+    .c2 .ob4  { width:76px; height:76px; bottom:5px;  right:25px; --float-dur:3.7s; --float-delay:.3s; }
+    .c2 .ob5  { width:62px; height:62px; top:45%; right:-8px; --float-dur:4.3s; --float-delay:.7s; }
+
+    /* Cluster 3: Web */
+    .c3 .ob1  { width:74px; height:74px; top:8px;   left:25px;  --float-dur:4.1s; --float-delay:.2s; }
+    .c3 .ob2  { width:78px; height:78px; top:2px;   right:25px; --float-dur:4.7s; --float-delay:.6s; }
+    .c3 .ob3  { width:66px; height:66px; bottom:18px; left:15px; --float-dur:3.6s; --float-delay:1.1s; }
+    .c3 .ob4  { width:73px; height:73px; bottom:8px;  right:18px; --float-dur:4.4s; --float-delay:.4s; }
+    .c3 .ob5  { width:64px; height:64px; top:42%; left:-2px;  --float-dur:3.9s; --float-delay:.8s; }
+
+    /* Cluster 4: Vibe Coding */
+    .c4 .ob1  { width:76px; height:76px; top:12px;  left:18px;  --float-dur:4.3s; --float-delay:.3s; }
+    .c4 .ob2  { width:84px; height:84px; top:-5px;  right:22px; --float-dur:3.8s; --float-delay:.7s; }
+    .c4 .ob3  { width:62px; height:62px; bottom:22px; left:8px; --float-dur:4.8s; --float-delay:1.2s; }
+    .c4 .ob4  { width:72px; height:72px; bottom:12px; right:12px; --float-dur:3.5s; --float-delay:.1s; }
+    .c4 .ob5  { width:58px; height:58px; top:38%; right:-10px; --float-dur:4.1s; --float-delay:.9s; }
+
+    /* Text side */
+    .cluster-text {}
+    .cluster-num {
+      font-family: var(--ff-serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--sand);
+      margin-bottom: 0.5rem;
+    }
+    .cluster-text h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+    .cluster-text p {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.85;
+      max-width: 520px;
+    }
+
+    /* Divider between clusters */
+    .cluster-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .interest-cluster,
+      .interest-cluster:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+      .interest-cluster:nth-child(even) .cluster-bubble-area,
+      .interest-cluster:nth-child(even) .cluster-text {
+        order: unset;
+      }
+      .cluster-bubble-area { height: 240px; }
+      .cluster-main-bubble { width: 130px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-name"><a href="index.html">Erga Indarwan</a></div>
+    <nav class="header-nav">
+      <a href="interests.html" class="active">Interests</a>
+      <a href="projects.html">Projects</a>
+      <a href="photography.html">Photography</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-role">Coder &amp; Engineer</div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag reveal">Interests</div>
+      <h1 class="page-hero-title reveal">What Fuels<br /><em>My Curiosity.</em></h1>
+      <p class="page-hero-sub reveal" data-delay="100">Things that keep me thinking, building, and breaking stuff.</p>
+    </div>
+    <div class="page-hero-bg-text" aria-hidden="true">INTERESTS</div>
+  </section>
+
+  <!-- Interests Bubble Section -->
+  <section class="section interests-page-section">
+    <div class="section-inner">
+      <div class="interests-universe">
+
+        <!-- ── Cluster 1: Arduino & Hardware ── -->
+        <div class="interest-cluster reveal c1" data-delay="0">
+          <div class="cluster-bubble-area">
+            <div class="cluster-main-bubble">
+              <div class="bubble-icon">⚡</div>
+              <div class="bubble-label">Arduino &<br/>Hardware</div>
+            </div>
+            <div class="orbit-bubble accent ob1">C++</div>
+            <div class="orbit-bubble sand ob2">Circuits</div>
+            <div class="orbit-bubble ob3">Sensors</div>
+            <div class="orbit-bubble accent ob4">Soldering</div>
+            <div class="orbit-bubble sand ob5">IoT</div>
+          </div>
+          <div class="cluster-text">
+            <div class="cluster-num">01</div>
+            <h3>Arduino &<br/>Hardware</h3>
+            <p>Where physical meets digital. I love wiring up sensors, writing firmware, and watching circuits come to life. From blinking LEDs to full IoT systems — if it involves a microcontroller and some soldering, I'm in.</p>
+          </div>
+        </div>
+
+        <hr class="cluster-divider reveal" />
+
+        <!-- ── Cluster 2: Python ── -->
+        <div class="interest-cluster reveal c2" data-delay="80">
+          <div class="cluster-text">
+            <div class="cluster-num">02</div>
+            <h3>Python</h3>
+            <p>My go-to language for everything from scripting quick tools to teaching kids their first lines of code. I love how readable it is, and how fast you can go from idea to working prototype.</p>
+          </div>
+          <div class="cluster-bubble-area">
+            <div class="cluster-main-bubble">
+              <div class="bubble-icon">🐍</div>
+              <div class="bubble-label">Python</div>
+            </div>
+            <div class="orbit-bubble accent ob1">Scripting</div>
+            <div class="orbit-bubble sand ob2">Automation</div>
+            <div class="orbit-bubble ob3">Teaching</div>
+            <div class="orbit-bubble accent ob4">Data</div>
+            <div class="orbit-bubble sand ob5">APIs</div>
+          </div>
+        </div>
+
+        <hr class="cluster-divider reveal" />
+
+        <!-- ── Cluster 3: HTML, CSS, JS ── -->
+        <div class="interest-cluster reveal c3" data-delay="160">
+          <div class="cluster-bubble-area">
+            <div class="cluster-main-bubble">
+              <div class="bubble-icon">🌐</div>
+              <div class="bubble-label">HTML, CSS<br/>&amp; JS</div>
+            </div>
+            <div class="orbit-bubble accent ob1">Layout</div>
+            <div class="orbit-bubble sand ob2">Animations</div>
+            <div class="orbit-bubble ob3">UI / UX</div>
+            <div class="orbit-bubble accent ob4">Responsive</div>
+            <div class="orbit-bubble sand ob5">Design</div>
+          </div>
+          <div class="cluster-text">
+            <div class="cluster-num">03</div>
+            <h3>HTML, CSS<br/>&amp; JS</h3>
+            <p>The trio that turns ideas into real things people can click. I obsess over details — smooth animations, clean layouts, and that satisfying feeling when a page just feels right. You're literally looking at it right now.</p>
+          </div>
+        </div>
+
+        <hr class="cluster-divider reveal" />
+
+        <!-- ── Cluster 4: Vibe Coding ── -->
+        <div class="interest-cluster reveal c4" data-delay="0">
+          <div class="cluster-text">
+            <div class="cluster-num">04</div>
+            <h3>Vibe Coding</h3>
+            <p>Prompting, tinkering, and shipping — fast. I love using AI tools to accelerate builds without losing the craft. It's not about replacing the skill; it's about amplifying it and building things that would've taken weeks in a weekend.</p>
+          </div>
+          <div class="cluster-bubble-area">
+            <div class="cluster-main-bubble">
+              <div class="bubble-icon">✨</div>
+              <div class="bubble-label">Vibe<br/>Coding</div>
+            </div>
+            <div class="orbit-bubble accent ob1">AI Tools</div>
+            <div class="orbit-bubble sand ob2">Rapid Build</div>
+            <div class="orbit-bubble ob3">Prompting</div>
+            <div class="orbit-bubble accent ob4">Iteration</div>
+            <div class="orbit-bubble sand ob5">Ship It</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>© 2025 Erga Indarwan</span>
+    <span class="footer-sep">·</span>
+    <span>Built with care &amp; caffeine</span>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="scrollToTop()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
